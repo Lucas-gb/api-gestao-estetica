@@ -1,4 +1,4 @@
-# 🌸 Loana Estética - Backend
+# 🌸 BeautyManager API - Sistema de Gestão Estética
 
 Sistema de gestão e acompanhamento visual para procedimentos estéticos. Este projeto automatiza o controle de fichas de anamnese e organiza o histórico fotográfico de clientes diretamente no servidor.
 
@@ -19,6 +19,10 @@ A forma mais fácil de testar as funcionalidades é através da interface intera
 - **Isolamento de Diretórios:** Criação automática de pastas no padrão `{ID}_{Nome}` para evitar conflito entre clientes homônimos. 
 - **Organização Cronológica:** Fotos nomeadas com `categoria_timestamp`, garantindo que o histórico de evolução nunca seja sobrescrito. 
 - **Upload Binário:** Suporte a arquivos reais (MultipartFile) via API.
+
+## 💾 Persistência e Armazenamento
+- [x] **Banco de Dados Permanente:** Migração do H2 de memória para persistência em arquivo local (`/data`), garantindo a retenção dos dados após o reinício do servidor.
+- [x] **Tratamento de Conflitos:** Implementação de IDs exclusivos nos nomes das pastas (`ID_Nome`), permitindo o gerenciamento de clientes homônimos.
 
 ---
 
