@@ -38,9 +38,9 @@ public class ClienteController {
         repository.save(cliente);
 
         // 2. Cria a pasta física usando o nome do cliente
-        fileService.criarPastaCliente(cliente.getNome());
+        fileService.criarPastaCliente(cliente.getId(), cliente.getNome());
 
-        return "Ficha de " + cliente.getNome() + " salva com sucesso!";
+        return "Cliente " + cliente.getNome() + " cadastrado com ID" + cliente.getId();
     }
 
     // 3. UPLOAD DE FOTO POR CATEGORIA
@@ -69,7 +69,7 @@ public class ClienteController {
         Cliente cliente = repository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Cliente não encontrada"));
 
-        return fileService.salvarFoto(cliente.getNome(), foto, categoria);
+        return fileService.salvarFoto(cliente.getId(), cliente.getNome(), foto, categoria);
     }
 
 }

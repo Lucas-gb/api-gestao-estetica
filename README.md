@@ -1,23 +1,45 @@
-# 🌸 Loana Estética - Controle de Progresso
+# 🌸 Loana Estética - Backend
 
-Sistema desenvolvido para gestão de clientes e acompanhamento visual de procedimentos estéticos.
+Sistema de gestão e acompanhamento visual para procedimentos estéticos. Este projeto automatiza o controle de fichas de anamnese e organiza o histórico fotográfico de clientes diretamente no servidor.
 
-## 🚀 Funcionalidades Atuais
-- [x] Cadastro de clientes com dados completos (Nome, Idade, Sexo, Telefone, E-mail).
-- [x] Criação automática de pastas físicas no servidor para armazenamento de fotos.
-- [x] Listagem de clientes em formato JSON para integração mobile.
+## 📍 Interface de Testes (Swagger)
+A forma mais fácil de testar as funcionalidades é através da interface interativa:
+👉 `http://localhost:8080/swagger-ui/index.html`
 
-## 🛠️ Tecnologias Utilizadas
-- **Java 21** (LTS)
-- **Spring Boot 3**
-- **Spring Data JPA**
-- **H2 Database** (Banco de dados em memória para desenvolvimento)
+---
 
-## 📍 Endpoints para Teste
-- **Cadastrar:** `http://localhost:8080/api/clientes/cadastrar?nome=Exemplo&idade=25&sexo=F&telefone=123&email=ana@email.com`
-- **Listar:** `http://localhost:8080/api/clientes/listar`
+## 🚀 Funcionalidades Principais
 
-## 📝 Atualização (Ficha de Anamnese)
-- [x] Migração de GET para POST no cadastro para maior segurança.
-- [x] Implementação de campos de texto longo para rotinas e alergias.
-- [x] Integração com Swagger UI para testes de interface facilitados.
+### 📋 Gestão de Clientes & Anamnese
+- **Cadastro Completo:** Coleta de dados básicos e fichas discursivas (rotina, alergias).
+- **Segurança de Dados:** Uso de `@PostMapping` para proteção de informações sensíveis e textos longos. 
+- **Listagem Dinâmica:** Endpoint pronto para integração com aplicativos mobile (JSON). 
+
+### 📸 Inteligência de Armazenamento
+- **Isolamento de Diretórios:** Criação automática de pastas no padrão `{ID}_{Nome}` para evitar conflito entre clientes homônimos. 
+- **Organização Cronológica:** Fotos nomeadas com `categoria_timestamp`, garantindo que o histórico de evolução nunca seja sobrescrito. 
+- **Upload Binário:** Suporte a arquivos reais (MultipartFile) via API.
+
+---
+
+## 🛠️ Tecnologias
+- **Linguagem:** Java 21 (LTS)
+- **Framework:** Spring Boot 3
+- **Persistência:** Spring Data JPA / H2 Database
+- **Documentação:** OpenAPI 3 (Swagger UI)
+
+---
+
+## 🧪 Exemplo de Payload (Cadastro)
+Ao utilizar o endpoint `/api/clientes/cadastrar`, envie o seguinte JSON:
+
+```json
+{
+  "nome": "Mariana Souza",
+  "idade": 28,
+  "sexo": "Feminino",
+  "telefone": "41888888888",
+  "email": "mariana@email.com",
+  "rotinaDiaria": "Descrição da rotina...",
+  "alergiasEObservacoes": "Alergia a iodo"
+}
