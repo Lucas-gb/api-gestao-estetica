@@ -18,6 +18,6 @@ Sistema desenvolvido para gestão de clientes e acompanhamento visual de procedi
 - **Listar:** `http://localhost:8080/api/clientes/listar`
 
 ## 📝 Atualização (Ficha de Anamnese)
-- [x] Migração de GET para POST no cadastro para maior segurança. [cite: 2025-06-17]
+- [x] Migração de GET para POST no cadastro para maior segurança.
 - [x] Implementação de campos de texto longo para rotinas e alergias.
 - [x] Integração com Swagger UI para testes de interface facilitados.
