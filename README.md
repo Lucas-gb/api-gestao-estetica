@@ -20,9 +20,18 @@ A forma mais fácil de testar as funcionalidades é através da interface intera
 - **Organização Cronológica:** Fotos nomeadas com `categoria_timestamp`, garantindo que o histórico de evolução nunca seja sobrescrito. 
 - **Upload Binário:** Suporte a arquivos reais (MultipartFile) via API.
 
-## 💾 Persistência e Armazenamento
+### 💾 Persistência e Armazenamento
 - [x] **Banco de Dados Permanente:** Migração do H2 de memória para persistência em arquivo local (`/data`), garantindo a retenção dos dados após o reinício do servidor.
 - [x] **Tratamento de Conflitos:** Implementação de IDs exclusivos nos nomes das pastas (`ID_Nome`), permitindo o gerenciamento de clientes homônimos.
+
+### 📱 Conectividade & Escalabilidade
+- [x] **Acesso Mobile:** Configuração de CORS habilitada para permitir que dispositivos na mesma rede Wi-Fi (ex: smartphones) acessem a API.
+- [x] **Upload Otimizado:** Limite de upload expandido para 10MB, suportando fotos de alta resolução enviadas diretamente de dispositivos móveis.
+- [x] **Preparado para Apps:** Estrutura pronta para integração com front-end mobile/web.
+
+### 📄 Documentação e Relatórios
+- [ ]**Exportação em PDF:** Integração com a biblioteca OpenPDF para geração automática de Fichas de Anamnese.
+- [ ]**Relatórios Profissionais:** Emissão de documentos formatados com dados da cliente para impressão ou compartilhamento via WhatsApp.
 
 ---
 
