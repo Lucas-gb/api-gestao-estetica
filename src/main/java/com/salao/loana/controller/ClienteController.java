@@ -3,7 +3,10 @@ package com.salao.loana.controller;
 import com.salao.loana.model.Cliente;
 import com.salao.loana.repository.ClienteRepository;
 import com.salao.loana.service.FileStorageService;
+import com.salao.loana.service.RelatorioService;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -43,19 +46,6 @@ public class ClienteController {
         return "Cliente " + cliente.getNome() + " cadastrado com ID" + cliente.getId();
     }
 
-    // 3. UPLOAD DE FOTO POR CATEGORIA
-    // @PostMapping("/{id}/upload-foto")
-    // public String uploadFoto(
-    // @PathVariable Long id,
-    // @RequestPart("foto") org.springframework.web.multipart.MultipartFile foto, //
-    // Mudamos de @RequestParam para @RequestPart
-    // @RequestParam("categoria") String categoria) {
-
-    // Cliente cliente = repository.findById(id)
-    // .orElseThrow(() -> new RuntimeException("Cliente não encontrada"));
-
-    // return fileService.salvarFoto(cliente.getNome(), foto, categoria);
-    // }
     @Operation(summary = "Fazer upload de foto da cliente (Rosto, Cintura, etc)")
     @PostMapping(value = "/{id}/upload-foto", consumes = org.springframework.http.MediaType.MULTIPART_FORM_DATA_VALUE)
     public String uploadFoto(
@@ -70,6 +60,23 @@ public class ClienteController {
                 .orElseThrow(() -> new RuntimeException("Cliente não encontrada"));
 
         return fileService.salvarFoto(cliente.getId(), cliente.getNome(), foto, categoria);
+    }
+
+    // METODO PARA RELATORIO PDF
+    @Autowired
+    private RelatorioService relatorioService;
+
+    @GetMapping("/{id}/relatorio")
+    public ResponseEntity<byte[]> baixarRelatorio(@PathVariable Long id) {
+        Cliente cliente = repository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Cliente não encontrado"));
+
+        byte[] pdf = relatorioService.gerarFichaAnamnese(cliente);
+
+        return ResponseEntity.ok()
+                .header("Content-Disposition", "attachment; filename=ficha_" + cliente.getNome() + ".pdf")
+                .contentType(org.springframework.http.MediaType.APPLICATION_PDF)
+                .body(pdf);
     }
 
 }

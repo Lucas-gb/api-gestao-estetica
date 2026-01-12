@@ -30,8 +30,10 @@ A forma mais fácil de testar as funcionalidades é através da interface intera
 - [x] **Preparado para Apps:** Estrutura pronta para integração com front-end mobile/web.
 
 ### 📄 Documentação e Relatórios
-- [ ]**Exportação em PDF:** Integração com a biblioteca OpenPDF para geração automática de Fichas de Anamnese.
-- [ ]**Relatórios Profissionais:** Emissão de documentos formatados com dados da cliente para impressão ou compartilhamento via WhatsApp.
+- [x]**Relatórios Profissionais:** Emissão de documentos formatados com dados da cliente para impressão ou compartilhamento via WhatsApp.
+- [x] **Acesso Mobile:** Configuração de CORS para permitir que dispositivos na mesma rede Wi-Fi acessem a API e realizem uploads.
+- [x] **Upload de Alta Resolução:** Suporte para arquivos de até 10MB, otimizado para fotos de smartphones modernos.
+- [x] **Geração de Documentos:** Integração com a biblioteca OpenPDF para exportação de dados e relatórios.
 
 ---
 
