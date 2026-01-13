@@ -10,19 +10,45 @@ public class Cliente {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    
+
+    // 1. DADOS PESSOAIS
     private String nome;
+    private String dataNascimento;
     private Integer idade;
-    private String  sexo;
+    private String profissao;
     private String telefone;
     private String email;
+    private String endereco;
 
-    //Campos para a ficha de anamnese (discursivas)
-    @Column(columnDefinition = "TEXT")
-    private String rotinaDiaria;
+    // 2. HISTÓRICO DE SAÚDE
+    private boolean usaMarcaPasso;
+    private boolean gestanteLactante;
+    private boolean historicoHerpes;
 
-    @Column(columnDefinition = "TEXT")
-    private String alergiasEObservacoes;
+    private boolean tratamentoMedico;
+    private String tratamentoMedicoQual;
 
-    private LocalDateTime dataCadastro = LocalDateTime.now();
+    private boolean possuiAlergias;
+    private String alergiasQual;
+
+    private boolean usaAcidos;
+    private String usaAcidosQual;
+
+    private boolean problemasHormonais;
+    private String problemasHormonaisQual;
+
+    // --- 3. HÁBITOS ---
+    private boolean exposicaoSol;
+    private boolean usaFiltroSolar;
+    private boolean tabagismo;
+    private String rotinaCuidados; // Texto longo
+    @Enumerated(EnumType.STRING)
+    private QualidadeSono qualidadeSono;
+    public enum QualidadeSono { BOA, REGULAR, RUIM }
+
+    // 4. AVALIAÇÃO BIOTIPOLÓGICA
+    private String biotipoCutaneo; // Eudérmica, Lipídica, Alípica, Mista
+    private String fototipo; // I a VI
+
+    private String observacoesAdicionais;
 }
