@@ -1,4 +1,4 @@
-package com.salao.loana;
+package com.salao.loana.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;

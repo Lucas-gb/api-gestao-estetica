@@ -79,4 +79,15 @@ public class ClienteController {
                 .body(pdf);
     }
 
+    // ADICIONA MNETODO PARA OBTER MANUAL DE INSTRUCÃO DE CONEXÃO FIREWALL IP
+    @GetMapping("/manual-conexao")
+    public ResponseEntity<byte[]> baixarManual() {
+        byte[] pdf = relatorioService.gerarManualConexao();
+
+        return ResponseEntity.ok()
+                .header("Content-Disposition", "attachment; filename=manual_conexao.pdf")
+                .contentType(org.springframework.http.MediaType.APPLICATION_PDF)
+                .body(pdf);
+    }
+
 }

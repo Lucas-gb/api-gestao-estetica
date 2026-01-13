@@ -35,6 +35,10 @@ A forma mais fácil de testar as funcionalidades é através da interface intera
 - [x] **Upload de Alta Resolução:** Suporte para arquivos de até 10MB, otimizado para fotos de smartphones modernos.
 - [x] **Geração de Documentos:** Integração com a biblioteca OpenPDF para exportação de dados e relatórios.
 
+### 📚 Autoajuda e Suporte Técnico
+- [x] **Manual de Conexão Integrado:** Endpoint exclusivo que gera um PDF instruindo como conectar o celular ao servidor local.
+- [x] **Arquitetura Organizada:** Código refatorado seguindo os padrões de mercado, com separação clara de configurações (`config`), serviços (`service`) e controladores.
+
 ---
 
 ## 🛠️ Tecnologias
